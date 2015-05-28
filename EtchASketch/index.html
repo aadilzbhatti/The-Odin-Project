@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <link rel="stylesheet" href="stylesheet.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
+    <meta charset="UTF-8">
+
+    <title>Etch-A-Sketch</title>
+</head>
+<body>
+    <div id ="cleargrid">
+        <form>
+            Would you like to clear the grid?
+            <button type="button" id="clearGridButton" onclick="clearGrid()">Clear</button>
+        </form>
+    </div>
+    <div id="gridgenerator">
+        <form>
+            Enter a grid size
+            <input type="text" id="generate">
+            <button type="button" id="gridGenButton" onclick="generateGrid()">Enter</button>
+        </form>
+    </div>
+    <div id="pixelgrid"></div>
+</body>
+</html>

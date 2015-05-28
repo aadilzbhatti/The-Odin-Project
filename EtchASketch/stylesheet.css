@@ -1,0 +1,10 @@
+.square {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    border:solid 1px #000;
+
+    height: 60px;
+    width: 60px;
+    background-color: white;
+}
