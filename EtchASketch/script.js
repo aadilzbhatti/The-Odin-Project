@@ -11,11 +11,11 @@ $(document).ready(function() {
 });
 
 function generateGrid() {
-    clearGrid();
+    deleteGrid();
     var input = document.getElementById("generate").value;
 
-    if (isNaN(input) || input < 0) {
-        alert("Invalid input. Please enter a nonnegative number.");
+    if (isNaN(input) || input < 0 || input > 300) {
+        alert("Invalid input. Please enter a number between 0 and 300.");
         return;
     }
 
@@ -41,5 +41,9 @@ function generateGrid() {
 }
 
 function clearGrid() {
+    $('.square').css("background-color", "white")
+}
+
+function deleteGrid() {
     $('div').remove('.square');
 }

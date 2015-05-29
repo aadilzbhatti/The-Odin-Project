@@ -1,7 +1,27 @@
+.jumbotron .container {
+    text-align:center;
+    color:#0D4F8B;
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+
+body {
+    background-color: #0D4F8B;
+}
+
+footer {
+    color:#0D4F8B;
+}
+
+img {
+    max-width:100%;
+}
+
+
 .square {
     display: table-cell;
     vertical-align: middle;
-    text-align: center;
     border:solid 1px #000;
 
     height: 60px;

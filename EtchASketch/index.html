@@ -2,7 +2,8 @@
 <html>
 <head lang="en">
     <link rel="stylesheet" href="stylesheet.css">
-
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
+ 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
 
@@ -11,23 +12,28 @@
     <title>Etch-A-Sketch</title>
 </head>
 <body>
-    <h1>Etch-A-Sketch!</h1>
-    <p>To use the Etch-A-Sketch, simply drag your mouse over the grid to draw. Use the "clear grid" 
-        button to delete the grid and use the "enter a grid size" form to create your own grid of 
-        a size of your choosing. Have fun!
-    <div id ="cleargrid">
-        <form>
-            Would you like to clear the grid?
-            <button type="button" id="clearGridButton" onclick="clearGrid()">Clear</button>
-        </form>
+    <div class="jumbotron">
+        <div class="container">
+            <p><a href="http://www.aadilbhatti.me/projects">Click here to return to the Aadil Bhatti homepage</a></p>
+            <h1>Etch-A-Sketch!</h1>
+            <p>To use the Etch-A-Sketch, simply drag your mouse over the grid to draw. Use the "clear grid"
+                button to clear the grid and use the "enter a grid size" form to create your own grid of
+                a size of your choosing. Have fun!
+            <div id ="cleargrid">
+                <form>
+                    Would you like to clear the grid?
+                    <button type="button" id="clearGridButton" onclick="clearGrid()">Clear</button>
+                </form>
+            </div>
+            <div id="gridgenerator">
+                <form>
+                    Enter a grid size
+                    <input type="text" id="generate">
+                    <button type="button" id="gridGenButton" onclick="generateGrid()">Enter</button>
+                </form>
+            </div>
+            <div id="pixelgrid"></div>
+        </div>
     </div>
-    <div id="gridgenerator">
-        <form>
-            Enter a grid size
-            <input type="text" id="generate">
-            <button type="button" id="gridGenButton" onclick="generateGrid()">Enter</button>
-        </form>
-    </div>
-    <div id="pixelgrid"></div>
 </body>
 </html>
