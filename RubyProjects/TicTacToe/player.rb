@@ -1,46 +1,102 @@
 require_relative 'game'
 
 class Player
-  attr_accessor :shape, :games_won, :choices
-  def initialize(shape)
+  attr_accessor :shape, :name
+  def initialize(shape, name)
     @shape = shape
-    @games_won = 0
-    @choices = []
+    @name = name
   end
 
   def make_choice(arr)
-    choice = gets.chomp
-    case choice.upcase
-      when "UL"
-        Game.place_shape(arr, @shape, 0, 0)
-      when "UC"
-        Game.place_shape(arr, @shape, 0, 1)
-      when "UR"
-        Game.place_shape(arr, @shape, 0, 2)
-      when "CL"
-        Game.place_shape(arr, @shape, 1, 0)
-      when "CC"
-        Game.place_shape(arr, @shape, 1, 1)
-      when "CR"
-        Game.place_shape(arr, @shape, 1, 2)
-      when "BL"
-        Game.place_shape(arr, @shape, 2, 0)
-      when "BC"
-        Game.place_shape(arr, @shape, 2, 1)
-      when "BR"
-        Game.place_shape(arr, @shape, 2, 2)
+    choice = gets.chomp.upcase
+    case choice
+      when 'UL'
+        if (arr[0][0] == '*')
+          Game.place_shape(arr, @shape, 0, 0)
+        else
+          puts 'Spot is taken. Please make a different selection.'
+          make_choice(arr)
+        end
+      when 'UC'
+        if (arr[0][1] == '*')
+          Game.place_shape(arr, @shape, 0, 1)
+        else
+          puts 'Spot is taken. Please make a different selection.'
+          make_choice(arr)
+        end
+      when 'UR'
+        if (arr[0][2] == '*')
+          Game.place_shape(arr, @shape, 0, 2)
+        else
+          puts 'Spot is taken. Please make a different selection.'
+          make_choice(arr)
+        end
+      when 'CL'
+        if (arr[1][0] == '*')
+          Game.place_shape(arr, @shape, 1, 0)
+        else
+          puts 'Spot is taken. Please make a different selection.'
+          make_choice(arr)
+        end
+      when 'CC'
+        if (arr[1][1] == '*')
+          Game.place_shape(arr, @shape, 1, 1)
+        else
+          puts 'Spot is taken. Please make a different selection.'
+          make_choice(arr)
+        end
+      when 'CR'
+        if (arr[1][2] == '*')
+          Game.place_shape(arr, @shape, 1, 2)
+        else
+          puts 'Spot is taken. Please make a different selection.'
+          make_choice(arr)
+        end
+      when 'BL'
+        if (arr[2][0] == '*')
+          Game.place_shape(arr, @shape, 2, 0)
+        else
+          puts 'Spot is taken. Please make a different selection.'
+          make_choice(arr)
+        end
+      when 'BC'
+        if (arr[2][1] == '*')
+          Game.place_shape(arr, @shape, 2, 1)
+        else
+          puts 'Spot is taken. Please make a different selection.'
+          make_choice(arr)
+        end
+      when 'BR'
+        if (arr[2][2] == '*')
+          Game.place_shape(arr, @shape, 2, 2)
+        else
+          puts 'Spot is taken. Please make a different selection.'
+          make_choice(arr)
+        end
       else
         puts 'I don\'t know that choice!'
         make_choice(arr)
     end
-    @choices << choice
-    p @choices
     return choice
   end
 
-  def check_victory
-    if @choices.any? {|entry| entry == 'UL'} and @choices.any? {|entry| entry == 'UC'} and @choices.any? {|entry| entry == 'UR'}
-      true
+  def check_victory(arr)
+    if Game.three_in_row(arr)
+      return true
+    elsif Game.three_in_col(arr)
+      return true
+    elsif Game.three_in_diag(arr)
+      return true
+    else
+      return false
+    end
+  end
+
+  def check_tie(arr)
+    if Game.board_filled(arr) and not check_victory(arr)
+      return true
+    else
+      return false
     end
   end
 end

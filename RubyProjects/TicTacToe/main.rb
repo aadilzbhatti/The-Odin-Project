@@ -6,7 +6,10 @@ def game_play(arr)
   Game.present_choices
 end
 
-game_arr = Array.new(3, Array.new(3, '0'))
+
+
+game_arr = [['*', '*', '*'], ['*', '*', '*'], ['*', '*', '*']]
+
 
 puts 'Welcome to command line Tic-Tac-Toe!'
 
@@ -17,25 +20,36 @@ guessed = rand(10)+1
 diff1 = (guessed - first_input).abs
 diff2 = (guessed - second_input).abs
 
-puts diff1 < diff2 ? "The person who entered #{first_input} will be using X's and the person who entered #{second_input} will be using O's." : "The person who entered #{second_input} will be using X's and the person who entered #{first_input} will be using O's."
-Player1 = Player.new('X')
-Player2 = Player.new('O')
+puts diff1 < diff2 ? "The person who entered #{first_input} will be using X's (player 1) and the person\
+ who entered #{second_input} will be using O's (player 2)." : "The person who entered #{second_input} will\
+ be using X's (player 1) and the person who entered #{first_input} will be using O's (player 2)."
 
-victory = false
+Player1 = Player.new('X', 'Player 1')
+Player2 = Player.new('O', 'Player 2')
 
-while not victory
+loop do
   game_play(game_arr)
   Player1.make_choice(game_arr)
-  if Player1.check_victory
-    victory = true
+  if Player1.check_victory(game_arr)
     puts 'Player 1 has won the game!'
+    victory = true
+    Game.display_board(game_arr)
+    break
+  end
+  if Player1.check_tie(game_arr)
+    puts 'It\'s a tie!'
     break
   end
   game_play(game_arr)
   Player2.make_choice(game_arr)
-  if Player2.check_victory
-    victory = true
+  if Player2.check_victory(game_arr)
     puts 'Player 2 has won the game!'
+    victory = true
+    Game.display_board(game_arr)
+    break
+  end
+  if Player2.check_tie(game_arr)
+    puts 'It\'s a tie!'
     break
   end
 end
