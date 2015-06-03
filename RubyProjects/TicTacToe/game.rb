@@ -75,11 +75,15 @@ class Game
   end
 
   def self.board_filled(arr)
+    flag = false
     arr.each do |sub|
       if sub.all?{|x| x != '*'}
-        return true
+        flag = true
+      end
+      if sub.any?{|x| x == '*'}
+        flag = false
       end
     end
-    return false
+    return flag
   end
 end
