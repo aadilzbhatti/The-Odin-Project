@@ -10,10 +10,9 @@ class Game
   def set_code
     i = 6
     4.times do
-      arr = @colors
       val = rand(i)
-      @code += arr[val].to_s
-      arr.delete_at(val)
+      @code += @colors[val].to_s
+      @colors.delete_at(val)
       i-=1
     end
   end
