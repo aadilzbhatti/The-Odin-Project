@@ -16,9 +16,10 @@ describe 'The game' do
   it 'should give the proper response to a guess' do
     test = Game.new
     test.code = 'ABCD'
-    test.respond_to_guess('ABCD').should == 'The computer has responded with: ####'
-    test.respond_to_guess('DCBA').should == 'The computer has responded with: $$$$'
-    test.respond_to_guess('ABDC').should == 'The computer has responded with: ##$$'
-    test.respond_to_guess('ACEF').should == 'The computer has responded with: #$'
+    test.respond_to_guess('ABCD').should == '####'
+    test.respond_to_guess('DCBA').should == '$$$$'
+    test.respond_to_guess('ABDC').should == '##$$'
+    test.respond_to_guess('ACEF').should == '#$'
+    test.respond_to_guess('ACBD').should == '#$$#'
   end
 end

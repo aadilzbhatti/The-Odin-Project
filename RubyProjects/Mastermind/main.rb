@@ -39,18 +39,17 @@ def computer_generated_code
     if main.check_guess(guess)
       puts 'You have guessed the code correctly!'
       victory = true
-      puts main.code
       break
     else
-      puts main.respond_to_guess(guess)
+      puts "The computer has responded with: #{main.respond_to_guess(guess)}"
       player.decrement_guesses
     end
   end
 
   if victory == false
     puts 'You have exceeded the amount of allowed guesses.'
-    puts "The code was: #{main.code}"
   end
+  puts "The code was: #{main.code}"
 end
 
 puts 'Welcome to command-line Mastermind!'

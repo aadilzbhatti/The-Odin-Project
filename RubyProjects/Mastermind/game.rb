@@ -1,22 +1,21 @@
 class Game
-  attr_accessor :code, :colors, :guess_code
+  attr_accessor :code, :colors
 
   def initialize
     @colors = %w{R G B Y M C}
     @code = ''
-    @guess_code = '****'
     self.set_code
   end
 
   def set_code
+    i = 6
     4.times do
-      @code += @colors[rand(6)].to_s
+      arr = @colors
+      val = rand(i)
+      @code += arr[val].to_s
+      arr.delete_at(val)
+      i-=1
     end
-  end
-
-  def show_incomplete
-    puts 'The code now looks like this:'
-    puts @guess_code
   end
 
   def check_guess(guess)
@@ -30,11 +29,11 @@ class Game
     guess_arr.length.times do |i|
       if guess_arr[i] == code_arr[i]
         res += '#'
-      elsif ((code_arr[i..code_arr.length-1].include?guess_arr[i]) || (code_arr[0..i-1].include?guess_arr[i])) && (i > res.length)
-          res += '$'
+      elsif code_arr.include?guess_arr[i]
+        res += '$'
       end
     end
-  "The computer has responded with: #{res}"
+  res
   end
 
   def input_response(guess)
