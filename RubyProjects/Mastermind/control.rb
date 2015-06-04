@@ -16,7 +16,7 @@ class Control
       puts 'Enter your guess:'
       guess = gets.chomp.upcase
       if guess.length != 4 || guess.split(//).include?(1..9)
-        puts 'Guesses must be 4 characters long'
+        puts 'Guesses must be 4 non-numeric characters long'
       else
         return guess
       end

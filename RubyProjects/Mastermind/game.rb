@@ -20,7 +20,7 @@ class Game
   end
 
   def check_guess(guess)
-    return guess == @code
+    guess == @code
   end
 
   def respond_to_guess(guess)
@@ -35,6 +35,10 @@ class Game
       end
     end
   "The computer has responded with: #{res}"
+  end
+
+  def input_response(guess)
+
   end
 end
 
