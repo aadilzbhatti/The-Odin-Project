@@ -1,5 +1,6 @@
 class Node
 	attr_reader :value, :left, :right
+	
 	def initialize(left, right, value)
 		@left = left
 		@right = right
@@ -9,6 +10,7 @@ class Node
 	def to_s
 		"#{self.value} => {#{self.left.to_s}, #{self.right.to_s}}".gsub(' {, }', ' *')
 	end
+
 	def breadth_first_search(value)
 		q = [self]
 		while not q.empty?
