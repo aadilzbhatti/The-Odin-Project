@@ -1,5 +1,3 @@
-require_relative 'node'
-
 $board_length = 7
 
 def knight_moves(start, finish, checked=[]) # Finds the minimum path length from A to B
