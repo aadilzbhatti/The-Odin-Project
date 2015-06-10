@@ -7,9 +7,8 @@ class Node
 	end
 
 	def to_s
-		"#{self.value} => {#{self.left.to_s}, #{self.right.to_s}}".gsub(' {, }', ' *').gsub(', }', ', *}').gsub('{,', '{*,')
+		"#{self.value} => {#{self.left.to_s}, #{self.right.to_s}}".gsub(' {, }', ' *')
 	end
-
 	def breadth_first_search(value)
 		q = [self]
 		while not q.empty?
@@ -77,4 +76,4 @@ tree = Node.build_tree(arr)
 # puts tree # 4 => {2 => {1 => *, 3 => *}, 6 => {5 => *, *}}
 # puts tree.breadth_first_search(5) # 5 => *
 # puts tree.depth_first_search(6) # 6 => {5 => *, *}
-puts tree.depth_first_search_rec(6) # 6 => {5 => *, *}
+# puts tree.depth_first_search_rec(6) # 6 => {5 => *, *}
