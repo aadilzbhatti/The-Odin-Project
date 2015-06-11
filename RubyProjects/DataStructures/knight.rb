@@ -18,13 +18,7 @@ def path_length(start, finish, checked=[]) # Computes the length of every path f
 	return 0 if start == finish
 	checked << start
 	moves = det_moves(start).each {|i| return 1 if i == finish}
-	moves.each do |i|
-		if not checked.include?i
-			return 1 + path_length(i, finish, checked)
-		else
-			next
-		end
-	end
+	moves.each {|i| return 1 + path_length(i, finish, checked) if not checked.include?i}
 	return 0
 end
 
