@@ -59,7 +59,7 @@ class Node
 	end
 end
 
-# puts tree = Node.build_tree([1, 2, 3, 4, 5, 6]) # 4 => {2 => {1 => {*, *}, 3 => {*, *}}, 6 => {5 => {*, *}, 7 => {*, *}}}
+# puts tree = Node.build_tree([1, 2, 3, 4, 5, 6, 7]) # 4 => {2 => {1 => {*, *}, 3 => {*, *}}, 6 => {5 => {*, *}, 7 => {*, *}}}
 # puts tree.breadth_first_search(12) # => false
 # puts tree.depth_first_search(6) # => true
 # puts tree.depth_first_search_rec(6) # => true
