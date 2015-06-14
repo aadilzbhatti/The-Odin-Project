@@ -81,22 +81,12 @@ class Player
   end
 
   def check_victory(arr)
-    if Game.three_in_row(arr)
-      return true
-    elsif Game.three_in_col(arr)
-      return true
-    elsif Game.three_in_diag(arr)
-      return true
-    else
-      return false
-    end
+    return true if Game.three_in_row(arr)
+    return true if Game.three_in_col(arr)
+    return true if Game.three_in_diag(arr)
   end
 
   def check_tie(arr)
-    if Game.board_filled(arr) and not check_victory(arr)
-      return true
-    else
-      return false
-    end
+    return (Game.board_filled(arr)) && (not check_victory(arr))
   end
 end

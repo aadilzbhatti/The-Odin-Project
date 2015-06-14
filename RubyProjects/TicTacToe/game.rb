@@ -46,20 +46,12 @@ class Game
   end
 
   def self.three_in_row(arr)
-    arr.each do |sub|
-      if sub.uniq.length == 1 and not sub.include?'*'
-        return true
-      end
-    end
+    arr.each {|sub| return true if sub.uniq.length == 1 and not sub.include?'*'}
     return false
   end
 
   def self.three_in_col(arr)
-    3.times do |i|
-      if (arr[0][i] == arr[1][i] and arr[1][i] == arr[2][i]) and (arr[0][i] != '*' and arr[1][i] != '*' and  arr[2][i] != '*')
-        return true
-      end
-    end
+    3.times {|i| return true if (arr[0][i] == arr[1][i] and arr[1][i] == arr[2][i]) && (arr[0][i] != '*' && arr[1][i] != '*' &&  arr[2][i] != '*')}
     return false
   end
 
@@ -67,23 +59,12 @@ class Game
     left_diag = (arr[0][0] == arr[1][1] and arr[1][1] == arr[2][2])
     right_diag = (arr[0][2] == arr[1][1] and arr[1][1] == arr[2][0])
     center = arr[1][1]
-    if (left_diag and center != '*') or (right_diag and center != '*')
-      return true
-    else
-      return false
-    end
+    return (left_diag and center != '*') or (right_diag and center != '*')
   end
 
   def self.board_filled(arr)
-    flag = false
-    arr.each do |sub|
-      if sub.all?{|x| x != '*'}
-        flag = true
-      end
-      if sub.any?{|x| x == '*'}
-        flag = false
-      end
-    end
+    flag = true
+    arr.each {|sub| flag = false if sub.any?{|x| x == '*'}}
     return flag
   end
 end
