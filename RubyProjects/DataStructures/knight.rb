@@ -2,10 +2,7 @@ $board_length = 7
 
 def knight_moves(start, finish, checked=[]) # Finds the minimum path length from A to B
 	p start
-	if start == finish
-		puts 'WE FOUND IT!!'
-		exit
-	end
+	return 'WE FOUND IT!!' if start == finish
 	checked << start
 	moves = det_moves(start).select {|x| not checked.include?x} 
 	length = []
